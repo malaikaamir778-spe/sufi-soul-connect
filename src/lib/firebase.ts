@@ -1,17 +1,15 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
-// Firebase configuration - these are publishable keys
-// You need to replace these with your own Firebase project credentials
-// Get them from: https://console.firebase.google.com/ > Project Settings > General > Your apps
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
-};
+ // Your Firebase configuration
+ const firebaseConfig = {
+   apiKey: "AIzaSyBB1wry9JSG3CzjsXZnqEf17huMoCXg8xE",
+   authDomain: "sufism-website.firebaseapp.com",
+   projectId: "sufism-website",
+   storageBucket: "sufism-website.firebasestorage.app",
+   messagingSenderId: "336805816827",
+   appId: "1:336805816827:web:2d6213fab91767eca2c35e"
+ };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
