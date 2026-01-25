@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Sufi Website - Warm & Earthy Design System
+   Inspired by traditional Sufi aesthetics with rich browns, creams, maroon, and gold
+   All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Warm cream background */
+    --background: 40 30% 96%;
+    --foreground: 25 30% 15%;
+
+    /* Card with subtle warmth */
+    --card: 40 25% 98%;
+    --card-foreground: 25 30% 15%;
+
+    /* Popover */
+    --popover: 40 25% 98%;
+    --popover-foreground: 25 30% 15%;
+
+    /* Primary - Rich Maroon */
+    --primary: 350 45% 35%;
+    --primary-foreground: 40 30% 96%;
+
+    /* Secondary - Warm Brown */
+    --secondary: 25 35% 85%;
+    --secondary-foreground: 25 30% 20%;
+
+    /* Muted - Soft Cream */
+    --muted: 35 25% 90%;
+    --muted-foreground: 25 20% 45%;
+
+    /* Accent - Golden */
+    --accent: 40 70% 50%;
+    --accent-foreground: 25 30% 15%;
+
+    /* Destructive */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 40 30% 96%;
+
+    /* Border & Input */
+    --border: 30 25% 85%;
+    --input: 30 25% 85%;
+    --ring: 350 45% 35%;
+
+    --radius: 0.5rem;
+
+    /* Sidebar */
+    --sidebar-background: 25 25% 95%;
+    --sidebar-foreground: 25 30% 25%;
+    --sidebar-primary: 350 45% 35%;
+    --sidebar-primary-foreground: 40 30% 96%;
+    --sidebar-accent: 40 70% 50%;
+    --sidebar-accent-foreground: 25 30% 15%;
+    --sidebar-border: 30 25% 85%;
+    --sidebar-ring: 350 45% 35%;
+
+    /* Custom Sufi Theme Colors */
+    --sufi-maroon: 350 45% 35%;
+    --sufi-gold: 40 70% 50%;
+    --sufi-cream: 40 30% 96%;
+    --sufi-brown: 25 35% 30%;
+    --sufi-brown-light: 25 25% 85%;
+    --sufi-sand: 35 40% 88%;
+    
+    /* Gradient definitions */
+    --gradient-sufi: linear-gradient(135deg, hsl(350 45% 35%), hsl(25 35% 30%));
+    --gradient-gold: linear-gradient(135deg, hsl(40 70% 50%), hsl(35 60% 45%));
+    --shadow-warm: 0 10px 30px -10px hsl(25 35% 30% / 0.2);
+  }
+
+  .dark {
+    /* Dark theme with deep earthy tones */
+    --background: 25 30% 8%;
+    --foreground: 40 25% 92%;
+
+    --card: 25 25% 12%;
+    --card-foreground: 40 25% 92%;
+
+    --popover: 25 25% 12%;
+    --popover-foreground: 40 25% 92%;
+
+    /* Primary - Lighter Maroon for dark mode */
+    --primary: 350 50% 55%;
+    --primary-foreground: 25 30% 8%;
+
+    /* Secondary */
+    --secondary: 25 25% 20%;
+    --secondary-foreground: 40 25% 92%;
+
+    /* Muted */
+    --muted: 25 20% 18%;
+    --muted-foreground: 35 20% 60%;
+
+    /* Accent - Brighter Gold */
+    --accent: 40 75% 55%;
+    --accent-foreground: 25 30% 8%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 40 25% 92%;
+
+    --border: 25 20% 20%;
+    --input: 25 20% 20%;
+    --ring: 350 50% 55%;
+
+    /* Sidebar dark */
+    --sidebar-background: 25 25% 10%;
+    --sidebar-foreground: 40 25% 90%;
+    --sidebar-primary: 350 50% 55%;
+    --sidebar-primary-foreground: 25 30% 8%;
+    --sidebar-accent: 40 75% 55%;
+    --sidebar-accent-foreground: 25 30% 8%;
+    --sidebar-border: 25 20% 20%;
+    --sidebar-ring: 350 50% 55%;
+
+    /* Custom Sufi Theme Colors - Dark */
+    --sufi-maroon: 350 50% 55%;
+    --sufi-gold: 40 75% 55%;
+    --sufi-cream: 40 20% 15%;
+    --sufi-brown: 25 30% 60%;
+    --sufi-brown-light: 25 20% 25%;
+    --sufi-sand: 35 25% 20%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Lora', 'Georgia', serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', 'Georgia', serif;
+  }
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .text-gradient-sufi {
+    background: linear-gradient(135deg, hsl(350 45% 35%), hsl(40 70% 50%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-pattern-geometric {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a853' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .shadow-sufi {
+    box-shadow: 0 10px 30px -10px hsl(25 35% 30% / 0.2);
+  }
+
+  .border-ornate {
+    border-image: linear-gradient(135deg, hsl(40 70% 50%), hsl(350 45% 35%)) 1;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.8);
+}
