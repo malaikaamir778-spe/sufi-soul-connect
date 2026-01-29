@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, User, Youtube, LogOut, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -20,10 +20,20 @@ import { useToast } from "@/hooks/use-toast";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const { user, loading, logout } = useAuth();
   const { toast } = useToast();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -63,7 +73,7 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
+    <header className={`navbar-sticky sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
@@ -83,7 +93,7 @@ const Header = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors link-underline ${
                   isActive(link.path)
                     ? "bg-primary text-primary-foreground"
                     : "text-foreground hover:bg-muted hover:text-primary"
@@ -190,7 +200,7 @@ const Header = () => {
                       key={link.path}
                       to={link.path}
                       onClick={() => setIsOpen(false)}
-                      className={`px-4 py-3 rounded-md text-base font-medium transition-colors ${
+                      className={`px-4 py-3 rounded-md text-base font-medium transition-colors link-underline ${
                         isActive(link.path)
                           ? "bg-primary text-primary-foreground"
                           : "text-foreground hover:bg-muted"

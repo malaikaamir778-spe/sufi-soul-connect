@@ -55,7 +55,7 @@ const Footer = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center transition-colors hover:bg-primary-foreground/20 ${social.color}`}
+                  className={`w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center transition-all hover:bg-primary-foreground/20 icon-hover ${social.color}`}
                   aria-label={social.label}
                 >
                   <social.icon className="h-5 w-5" />
@@ -72,7 +72,7 @@ const Footer = () => {
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-sm opacity-80 hover:opacity-100 hover:underline transition-opacity"
+                    className="text-sm opacity-80 hover:opacity-100 link-underline transition-opacity"
                   >
                     {link.name}
                   </Link>
@@ -89,7 +89,7 @@ const Footer = () => {
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-sm opacity-80 hover:opacity-100 hover:underline transition-opacity"
+                    className="text-sm opacity-80 hover:opacity-100 link-underline transition-opacity"
                   >
                     {link.name}
                   </Link>

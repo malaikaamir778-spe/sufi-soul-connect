@@ -31,7 +31,8 @@ googleProvider.addScope('email');
 
 // Set custom parameters for Google OAuth
 googleProvider.setCustomParameters({
-  'prompt': 'consent'
+  'prompt': 'consent',
+  'login_hint': 'user@example.com'
 });
 
 export default app;
