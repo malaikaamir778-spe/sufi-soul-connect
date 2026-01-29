@@ -74,9 +74,25 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const signInWithGoogle = async () => {
     try {
-      await signInWithPopup(auth, googleProvider);
+      // Set persistence to LOCAL to ensure user stays logged in
+      const result = await signInWithPopup(auth, googleProvider);
+      
+      // Handle any profile updates if needed
+      if (result.user && !result.user.displayName) {
+        await updateProfile(result.user, {
+          displayName: result.user.email?.split("@")[0] || "User",
+        });
+      }
+      
       return { error: null };
-    } catch (error) {
+    } catch (error: any) {
+      // Don't treat popup-closed as a hard error, just return it
+      if (error.code === "auth/popup-closed-by-user") {
+        return { error: error as Error };
+      }
+      
+      // Log other errors for debugging
+      console.error("Google sign-in error:", error);
       return { error: error as Error };
     }
   };

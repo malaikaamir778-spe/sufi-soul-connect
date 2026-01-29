@@ -30,6 +30,7 @@ const Auth = () => {
   // Redirect if already logged in
   useEffect(() => {
     if (user) {
+      setIsLoading(false);
       navigate("/");
     }
   }, [user, navigate]);
@@ -142,24 +143,34 @@ const Auth = () => {
   const handleGoogleLogin = async () => {
     setIsLoading(true);
     
-    const { error } = await signInWithGoogle();
+    try {
+      const { error } = await signInWithGoogle();
 
-    if (error) {
-      const errorCode = (error as any).code || "";
+      if (error) {
+        const errorCode = (error as any).code || "";
+        toast({
+          variant: "destructive",
+          title: "Google sign-in failed",
+          description: getErrorMessage(errorCode),
+        });
+        setIsLoading(false);
+      } else {
+        toast({
+          title: "Welcome!",
+          description: "You have successfully signed in with Google.",
+        });
+        // Don't set loading to false here, let the useEffect redirect handle it
+        // since the user state will update
+      }
+    } catch (err) {
+      console.error("Google login error:", err);
       toast({
         variant: "destructive",
         title: "Google sign-in failed",
-        description: getErrorMessage(errorCode),
+        description: "An unexpected error occurred. Please try again.",
       });
-    } else {
-      toast({
-        title: "Welcome!",
-        description: "You have successfully signed in with Google.",
-      });
-      navigate("/");
+      setIsLoading(false);
     }
-
-    setIsLoading(false);
   };
 
   return (

@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, setPersistence, browserLocalPersistence } from "firebase/auth";
 
  // Your Firebase configuration
  const firebaseConfig = {
@@ -17,11 +17,21 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firebase Authentication
 export const auth = getAuth(app);
 
+// Set persistence to LOCAL to keep user logged in across sessions
+setPersistence(auth, browserLocalPersistence).catch((error) => {
+  console.error("Failed to set persistence:", error);
+});
+
 // Initialize Google Auth Provider
 export const googleProvider = new GoogleAuthProvider();
 
-// Add scopes for Google provider (optional)
+// Add scopes for Google provider
 googleProvider.addScope('profile');
 googleProvider.addScope('email');
+
+// Set custom parameters for Google OAuth
+googleProvider.setCustomParameters({
+  'prompt': 'consent'
+});
 
 export default app;
