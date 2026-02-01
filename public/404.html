@@ -4,13 +4,19 @@
     <meta charset="utf-8">
     <title>Sufi Soul Connect</title>
     <script type="text/javascript">
-      var pathSegmentsToKeep = 2;
-      var l = window.location;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/')
-      );
+      (function() {
+        var base = '/sufi-soul-connect/';
+        var loc = window.location;
+        // Only redirect if we're under the repo path and we haven't already been rewritten
+        if (loc.pathname.indexOf(base) !== 0) return;
+        if (loc.search.indexOf('?/') !== -1) return;
+        // compute the path after the base
+        var path = loc.pathname.slice(base.length);
+        // avoid redirecting root to itself
+        if (!path) return;
+        // redirect to the index with the path encoded for the SPA Router
+        loc.replace(base + '?/' + path + loc.hash);
+      })();
     </script>
   </head>
   <body>
