@@ -28,7 +28,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="bg-sufi-maroon text-sufi-cream">
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">

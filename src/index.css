@@ -22,7 +22,7 @@
     --popover-foreground: 25 30% 15%;
 
     /* Primary - Custom Maroon (#3d2419) */
-    --primary: 18 40% 18%; /* #3d2419 */
+    --primary: 18 40% 22%; /* #3d2419 slightly lighter for better contrast */
     --primary-foreground: 40 30% 96%;
 
     /* Secondary - Warm Brown */
@@ -59,7 +59,7 @@
     --sidebar-ring: 18 40% 18%;
 
     /* Custom Sufi Theme Colors */
-    --sufi-maroon: 18 40% 18%; /* #3d2419 */
+    --sufi-maroon: 18 40% 22%; /* #3d2419 slightly lighter */
     --sufi-gold: 40 86% 62%; /* #f8c256 */
     --sufi-cream: 40 30% 96%;
     --sufi-brown: 25 35% 30%;
@@ -211,7 +211,7 @@
     left: -100%;
     width: 100%;
     height: 1px;
-    background: currentColor;
+    background: hsl(var(--sufi-gold)); /* use gold underline for better visibility */
     transition: left var(--motion-fade-medium) var(--motion-easing-out);
   }
 
