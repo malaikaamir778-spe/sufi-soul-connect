@@ -56,10 +56,10 @@ const AnnouncementBar = () => {
     <div className="bg-primary text-primary-foreground py-2 overflow-hidden">
       <div className="flex items-center justify-between container mx-auto px-4">
         {/* Islamic Date Display */}
-        <div className="hidden md:flex items-center gap-2 text-sm font-medium whitespace-nowrap">
+        <div className="flex items-center gap-2 text-sm font-medium whitespace-nowrap">
           <Moon className="h-4 w-4" />
           {hijriDate && (
-            <span>
+            <span className="truncate">
               {hijriDate.day} {hijriDate.month} {hijriDate.year} AH
             </span>
           )}
