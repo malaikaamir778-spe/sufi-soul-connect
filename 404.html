@@ -9,13 +9,13 @@
         var loc = window.location;
         // Only redirect if we're under the repo path and we haven't already been rewritten
         if (loc.pathname.indexOf(base) !== 0) return;
-        if (loc.search.indexOf('?/') !== -1) return;
+        if (loc.hash && loc.hash.indexOf('#/') !== -1) return;
         // compute the path after the base
         var path = loc.pathname.slice(base.length);
         // avoid redirecting root to itself
         if (!path) return;
-        // redirect to the index with the path encoded for the SPA Router
-        loc.replace(base + '?/' + path + loc.hash);
+        // redirect to the index using hash routing so the SPA preserves the path
+        loc.replace(base + '#/' + path + loc.hash);
       })();
     </script>
   </head>
