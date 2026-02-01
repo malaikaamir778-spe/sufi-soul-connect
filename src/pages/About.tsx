@@ -51,7 +51,7 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              About <span className="text-primary">Sufi Qawwali</span>
+              About <span className="text-foreground">Sufi Qawwali</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
               We are dedicated to preserving and spreading the divine tradition of Sufi music, 
@@ -117,7 +117,7 @@ const About = () => {
               <Card key={index} className="text-center border-border hover:border-primary/50 transition-colors">
                 <CardContent className="pt-6">
                   <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <value.icon className="h-8 w-8 text-primary" />
+                    <value.icon className="h-8 w-8 text-foreground" />
                   </div>
                   <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
                     {value.title}
@@ -158,7 +158,7 @@ const About = () => {
                 <h3 className="font-serif text-xl font-semibold text-foreground mb-1">
                   {member.name}
                 </h3>
-                <p className="text-primary">{member.role}</p>
+                <p className="text-foreground">{member.role}</p>
               </div>
             ))}
           </div>

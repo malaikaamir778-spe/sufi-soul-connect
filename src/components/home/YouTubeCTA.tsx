@@ -14,10 +14,10 @@ const YouTubeCTA = () => {
             <Youtube className="h-10 w-10 text-white" />
           </div>
 
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Join Our Growing Community
           </h2>
-          <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-foreground/90 mb-8 max-w-2xl mx-auto">
             Subscribe to our YouTube channel and never miss a new Qawwali. 
             Be part of a community that celebrates divine music.
           </p>

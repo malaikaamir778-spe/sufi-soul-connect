@@ -96,7 +96,7 @@ const Header = () => {
                 className={`px-4 py-2 rounded-md text-sm font-medium transition-colors link-underline ${
                   isActive(link.path)
                     ? "bg-primary text-primary-foreground"
-                    : "text-foreground hover:bg-muted hover:text-primary"
+                    : "text-foreground hover:bg-muted hover:text-foreground"
                 }`}
               >
                 {link.name}

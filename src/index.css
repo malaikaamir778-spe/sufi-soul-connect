@@ -9,33 +9,35 @@
 
 @layer base {
   :root {
-    /* Warm cream background */
-    --background: 40 30% 96%;
-    --foreground: 25 30% 15%;
+    /* Brand colors (applied site-wide):
+       - All text -> gold (#f8c256)
+       - All backgrounds/buttons/hover -> maroon (#3d2318)
+    */
+    --foreground: 40 86% 62%; /* #f8c256 - text */
+    --background: 19 22% 17%; /* #3d2318 - base background */
 
-    /* Card with subtle warmth */
-    --card: 40 25% 98%;
-    --card-foreground: 25 30% 15%;
+    /* Surfaces use brand background and foreground for text */
+    --card: 19 22% 17%;
+    --card-foreground: 40 86% 62%;
 
-    /* Popover */
-    --popover: 40 25% 98%;
-    --popover-foreground: 25 30% 15%;
+    --popover: 19 22% 17%;
+    --popover-foreground: 40 86% 62%;
 
-    /* Primary - Custom Maroon (#3d2419) */
-    --primary: 18 40% 22%; /* #3d2419 slightly lighter for better contrast */
-    --primary-foreground: 40 30% 96%;
+    /* Primary controls / buttons use maroon */
+    --primary: 19 22% 17%;
+    --primary-foreground: 40 86% 62%;
 
-    /* Secondary - Warm Brown */
+    /* Secondary - keep an accessible lighter tone when needed (rare) */
     --secondary: 25 35% 85%;
-    --secondary-foreground: 25 30% 20%;
+    --secondary-foreground: 40 86% 62%;
 
-    /* Muted - Soft Cream */
-    --muted: 35 25% 90%;
-    --muted-foreground: 25 20% 45%;
+    /* Muted surfaces also mapped to brand background */
+    --muted: 19 22% 17%;
+    --muted-foreground: 40 86% 62%;
 
-    /* Accent - Custom Gold (#f8c256) */
+    /* Accent kept as brand text (gold) */
     --accent: 40 86% 62%; /* #f8c256 */
-    --accent-foreground: 25 30% 15%;
+    --accent-foreground: 19 22% 17%;
 
     /* Destructive */
     --destructive: 0 84.2% 60.2%;
@@ -48,28 +50,28 @@
 
     --radius: 0.5rem;
 
-    /* Sidebar */
-    --sidebar-background: 25 25% 95%;
-    --sidebar-foreground: 25 30% 25%;
-    --sidebar-primary: 18 40% 18%;
-    --sidebar-primary-foreground: 40 30% 96%;
+    /* Sidebar uses brand surfaces */
+    --sidebar-background: 19 22% 17%;
+    --sidebar-foreground: 40 86% 62%;
+    --sidebar-primary: 19 22% 17%;
+    --sidebar-primary-foreground: 40 86% 62%;
     --sidebar-accent: 40 86% 62%;
-    --sidebar-accent-foreground: 25 30% 15%;
-    --sidebar-border: 30 25% 85%;
-    --sidebar-ring: 18 40% 18%;
+    --sidebar-accent-foreground: 19 22% 17%;
+    --sidebar-border: 19 22% 17%;
+    --sidebar-ring: 19 22% 17%;
 
     /* Custom Sufi Theme Colors */
-    --sufi-maroon: 18 40% 22%; /* #3d2419 slightly lighter */
+    --sufi-maroon: 19 22% 17%; /* #3d2318 */
     --sufi-gold: 40 86% 62%; /* #f8c256 */
-    --sufi-cream: 40 30% 96%;
+    --sufi-cream: 40 86% 62%; /* text uses gold */
     --sufi-brown: 25 35% 30%;
     --sufi-brown-light: 25 25% 85%;
     --sufi-sand: 35 40% 88%;
     
     /* Gradient definitions */
-    --gradient-sufi: linear-gradient(135deg, hsl(18 40% 18%), hsl(25 35% 30%));
+    --gradient-sufi: linear-gradient(135deg, hsl(19 22% 17%), hsl(25 35% 30%));
     --gradient-gold: linear-gradient(135deg, hsl(40 86% 62%), hsl(35 60% 45%));
-    --shadow-warm: 0 10px 30px -10px hsl(18 40% 18% / 0.2);
+    --shadow-warm: 0 10px 30px -10px hsl(19 22% 17% / 0.2);
 
     /* Motion System Tokens */
     --motion-fade-slow: 180ms;

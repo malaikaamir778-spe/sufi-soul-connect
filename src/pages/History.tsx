@@ -83,10 +83,10 @@ const History = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
-              <BookOpen className="h-8 w-8 text-primary" />
+              <BookOpen className="h-8 w-8 text-foreground" />
             </div>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              History of <span className="text-primary">Qawwali</span>
+              History of <span className="text-foreground">Qawwali</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
               A journey through seven centuries of divine music, from its origins in medieval India 
@@ -149,7 +149,7 @@ const History = () => {
                     <Card className="border-border hover:border-primary/50 transition-colors">
                       <CardContent className="p-6">
                         <div className="flex items-center gap-3 mb-3">
-                          <span className="text-sm font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">
+                          <span className="text-sm font-semibold text-foreground bg-primary/10 px-3 py-1 rounded-full">
                             {item.year}
                           </span>
                         </div>
@@ -198,7 +198,7 @@ const History = () => {
                   <h3 className="font-serif text-lg font-semibold text-foreground mb-1">
                     {artist.name}
                   </h3>
-                  <p className="text-sm text-primary mb-2">{artist.era}</p>
+                  <p className="text-sm text-foreground mb-2">{artist.era}</p>
                   <p className="text-sm text-muted-foreground">{artist.contribution}</p>
                 </CardContent>
               </Card>

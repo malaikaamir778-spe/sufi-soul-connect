@@ -221,7 +221,7 @@ const Auth = () => {
                           <Label htmlFor="login-password">Password</Label>
                           <Link
                             to="/forgot-password"
-                            className="text-xs text-primary hover:underline"
+                            className="text-xs text-foreground hover:underline"
                           >
                             Forgot password?
                           </Link>
@@ -396,11 +396,11 @@ const Auth = () => {
                 {/* Terms */}
                 <p className="text-xs text-center text-muted-foreground mt-6">
                   By continuing, you agree to our{" "}
-                  <Link to="/terms" className="text-primary hover:underline">
+                  <Link to="/terms" className="text-foreground hover:underline">
                     Terms of Service
                   </Link>{" "}
                   and{" "}
-                  <Link to="/privacy" className="text-primary hover:underline">
+                  <Link to="/privacy" className="text-foreground hover:underline">
                     Privacy Policy
                   </Link>
                 </p>

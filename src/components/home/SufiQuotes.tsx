@@ -86,7 +86,7 @@ const SufiQuotes = () => {
           {/* Section Header */}
           <div className="text-center mb-10">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
-              <Quote className="h-8 w-8 text-primary" />
+              <Quote className="h-8 w-8 text-foreground" />
             </div>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-2">
               Sufi Wisdom
@@ -99,7 +99,7 @@ const SufiQuotes = () => {
           {/* Quote Card */}
           <div className="bg-card rounded-2xl shadow-sufi p-8 md:p-12 relative border border-border">
             {/* Decorative Quote Marks */}
-            <Quote className="absolute top-6 left-6 h-12 w-12 text-primary/10" />
+            <Quote className="absolute top-6 left-6 h-12 w-12 text-foreground/10" />
             <Quote className="absolute bottom-6 right-6 h-12 w-12 text-primary/10 rotate-180" />
 
             {/* Quote Content */}

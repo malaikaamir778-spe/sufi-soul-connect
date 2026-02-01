@@ -109,7 +109,7 @@ const Reviews = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
-              <MessageCircle className="h-8 w-8 text-primary" />
+              <MessageCircle className="h-8 w-8 text-foreground" />
             </div>
             <h1 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-4">
               Community Reviews
@@ -141,7 +141,7 @@ const Reviews = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {stats.map((stat, index) => (
               <div key={index}>
-                <div className="text-3xl md:text-4xl font-bold font-serif text-primary mb-1">
+                <div className="text-3xl md:text-4xl font-bold font-serif text-foreground mb-1">
                   {stat.value}
                 </div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
@@ -214,7 +214,7 @@ const Reviews = () => {
       <section className="py-16 md:py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-center gap-3 mb-10">
-            <Youtube className="h-8 w-8 text-red-500" />
+            <Youtube className="h-8 w-8 text-foreground" />
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground">
               YouTube Comments
             </h2>

@@ -151,7 +151,7 @@ const Qawwali = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
-              <Music className="h-8 w-8 text-primary" />
+              <Music className="h-8 w-8 text-foreground" />
             </div>
             <h1 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-4">
               Qawwali Collection
@@ -253,7 +253,7 @@ const Qawwali = () => {
                 </div>
 
                 <CardContent className="p-4">
-                  <h3 className="font-serif text-lg font-semibold text-foreground mb-1 line-clamp-1 group-hover:text-primary transition-colors">
+                  <h3 className="font-serif text-lg font-semibold text-foreground mb-1 line-clamp-1 group-hover:text-foreground transition-colors">
                     {qawwali.title}
                   </h3>
                   <p className="text-sm text-muted-foreground mb-3">{qawwali.artist}</p>

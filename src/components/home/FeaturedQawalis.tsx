@@ -137,7 +137,7 @@ const FeaturedQawalis = () => {
               </div>
 
               <CardContent className="p-4">
-                <h3 className="font-serif text-lg font-semibold text-foreground mb-1 line-clamp-1 group-hover:text-primary transition-colors">
+                <h3 className="font-serif text-lg font-semibold text-foreground mb-1 line-clamp-1 group-hover:text-foreground transition-colors">
                   {qawwali.title}
                 </h3>
                 <p className="text-sm text-muted-foreground mb-3">{qawwali.artist}</p>

@@ -21,10 +21,10 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Youtube, href: "https://youtube.com", label: "YouTube", color: "hover:text-red-500" },
-    { icon: Facebook, href: "https://facebook.com", label: "Facebook", color: "hover:text-blue-500" },
-    { icon: Instagram, href: "https://instagram.com", label: "Instagram", color: "hover:text-pink-500" },
-    { icon: Twitter, href: "https://twitter.com", label: "Twitter", color: "hover:text-sky-500" },
+    { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
+    { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+    { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
   ];
 
   return (
@@ -55,7 +55,7 @@ const Footer = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-12 h-12 rounded-full bg-primary-foreground/10 flex items-center justify-center transition-all hover:bg-primary-foreground/20 icon-hover ${social.color}`}
+                  className="w-12 h-12 rounded-full bg-primary-foreground/10 flex items-center justify-center transition-all hover:bg-primary-foreground/20 icon-hover"
                   aria-label={social.label}
                 >
                   <social.icon className="h-5 w-5" />
@@ -138,7 +138,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm opacity-80">
             <p>© {new Date().getFullYear()} Sufi Qawwali. All rights reserved.</p>
             <p className="flex items-center gap-1">
-              Made with <Heart className="h-4 w-4 text-red-400 fill-red-400" /> for Sufi Music Lovers
+              Made with <Heart className="h-4 w-4 text-sufi-gold fill-sufi-gold" /> for Sufi Music Lovers
             </p>
           </div>
         </div>
