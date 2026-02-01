@@ -21,8 +21,8 @@
     --popover: 40 25% 98%;
     --popover-foreground: 25 30% 15%;
 
-    /* Primary - Rich Maroon */
-    --primary: 350 45% 35%;
+    /* Primary - Custom Maroon (#3d2419) */
+    --primary: 18 40% 18%; /* #3d2419 */
     --primary-foreground: 40 30% 96%;
 
     /* Secondary - Warm Brown */
@@ -33,8 +33,8 @@
     --muted: 35 25% 90%;
     --muted-foreground: 25 20% 45%;
 
-    /* Accent - Golden */
-    --accent: 40 70% 50%;
+    /* Accent - Custom Gold (#f8c256) */
+    --accent: 40 86% 62%; /* #f8c256 */
     --accent-foreground: 25 30% 15%;
 
     /* Destructive */
@@ -44,32 +44,32 @@
     /* Border & Input */
     --border: 30 25% 85%;
     --input: 30 25% 85%;
-    --ring: 350 45% 35%;
+    --ring: 18 40% 18%;
 
     --radius: 0.5rem;
 
     /* Sidebar */
     --sidebar-background: 25 25% 95%;
     --sidebar-foreground: 25 30% 25%;
-    --sidebar-primary: 350 45% 35%;
+    --sidebar-primary: 18 40% 18%;
     --sidebar-primary-foreground: 40 30% 96%;
-    --sidebar-accent: 40 70% 50%;
+    --sidebar-accent: 40 86% 62%;
     --sidebar-accent-foreground: 25 30% 15%;
     --sidebar-border: 30 25% 85%;
-    --sidebar-ring: 350 45% 35%;
+    --sidebar-ring: 18 40% 18%;
 
     /* Custom Sufi Theme Colors */
-    --sufi-maroon: 350 45% 35%;
-    --sufi-gold: 40 70% 50%;
+    --sufi-maroon: 18 40% 18%; /* #3d2419 */
+    --sufi-gold: 40 86% 62%; /* #f8c256 */
     --sufi-cream: 40 30% 96%;
     --sufi-brown: 25 35% 30%;
     --sufi-brown-light: 25 25% 85%;
     --sufi-sand: 35 40% 88%;
     
     /* Gradient definitions */
-    --gradient-sufi: linear-gradient(135deg, hsl(350 45% 35%), hsl(25 35% 30%));
-    --gradient-gold: linear-gradient(135deg, hsl(40 70% 50%), hsl(35 60% 45%));
-    --shadow-warm: 0 10px 30px -10px hsl(25 35% 30% / 0.2);
+    --gradient-sufi: linear-gradient(135deg, hsl(18 40% 18%), hsl(25 35% 30%));
+    --gradient-gold: linear-gradient(135deg, hsl(40 86% 62%), hsl(35 60% 45%));
+    --shadow-warm: 0 10px 30px -10px hsl(18 40% 18% / 0.2);
 
     /* Motion System Tokens */
     --motion-fade-slow: 180ms;
@@ -156,7 +156,7 @@
 /* Custom utility classes */
 @layer utilities {
   .text-gradient-sufi {
-    background: linear-gradient(135deg, hsl(350 45% 35%), hsl(40 70% 50%));
+    background: linear-gradient(135deg, hsl(18 40% 18%), hsl(40 86% 62%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -171,7 +171,7 @@
   }
 
   .border-ornate {
-    border-image: linear-gradient(135deg, hsl(40 70% 50%), hsl(350 45% 35%)) 1;
+    border-image: linear-gradient(135deg, hsl(40 86% 62%), hsl(18 40% 18%)) 1;
   }
 
   /* Smooth page fade transition */

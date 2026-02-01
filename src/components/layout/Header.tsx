@@ -78,8 +78,8 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-serif text-lg md:text-xl font-bold">ص</span>
+            <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-primary flex items-center justify-center">
+              <span className="text-primary-foreground font-serif text-xl md:text-2xl font-bold">ص</span>
             </div>
             <div className="hidden sm:block">
               <h1 className="font-serif text-lg md:text-xl font-bold text-foreground">Sufi Qawwali</h1>
@@ -181,7 +181,7 @@ const Header = () => {
                 {/* User info in mobile menu */}
                 {user && (
                   <div className="flex items-center gap-3 p-3 mb-4 bg-muted rounded-lg">
-                    <Avatar className="h-10 w-10">
+                    <Avatar className="h-12 w-12">
                       <AvatarImage src={user.photoURL || undefined} alt={user.displayName || "User"} />
                       <AvatarFallback className="bg-primary text-primary-foreground">
                         {getInitials(user.displayName || user.email)}
