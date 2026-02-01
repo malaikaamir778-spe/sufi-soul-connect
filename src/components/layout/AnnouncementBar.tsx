@@ -3,6 +3,7 @@ import { Calendar, Moon } from "lucide-react";
 
 // Helper function to convert Gregorian to Hijri date (approximate)
 const getHijriDate = (): { day: number; month: string; year: number } => {
+  // Fallback approximate calculation (kept for environments without Intl support)
   const today = new Date();
   const gregorianYear = today.getFullYear();
   const gregorianMonth = today.getMonth();
@@ -38,11 +39,37 @@ const getHijriDate = (): { day: number; month: string; year: number } => {
   };
 };
 
+const formatHijriIntl = (): string | null => {
+  try {
+    const today = new Date();
+    // Use Intl with the Islamic calendar if available
+    const formatter = new Intl.DateTimeFormat('en-u-ca-islamic', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    });
+    const formatted = formatter.format(today);
+    // Ensure we append AH if not present
+    return formatted.includes('AH') ? formatted : formatted + ' AH';
+  } catch (e) {
+    return null;
+  }
+};
+
 const AnnouncementBar = () => {
   const [hijriDate, setHijriDate] = useState<{ day: number; month: string; year: number } | null>(null);
+  const [hijriStr, setHijriStr] = useState<string | null>(null);
 
   useEffect(() => {
-    setHijriDate(getHijriDate());
+    // Prefer Intl if available for accurate Hijri date
+    const intl = formatHijriIntl();
+    if (intl) {
+      setHijriStr(intl);
+    } else {
+      const d = getHijriDate();
+      setHijriDate(d);
+      setHijriStr(`${d.day} ${d.month} ${d.year} AH`);
+    }
   }, []);
 
   const announcements = [
@@ -58,10 +85,8 @@ const AnnouncementBar = () => {
         {/* Islamic Date Display */}
         <div className="flex items-center gap-2 text-sm font-medium whitespace-nowrap">
           <Moon className="h-4 w-4" />
-          {hijriDate && (
-            <span className="truncate">
-              {hijriDate.day} {hijriDate.month} {hijriDate.year} AH
-            </span>
+          {hijriStr && (
+            <span className="truncate">{hijriStr}</span>
           )}
         </div>
 
