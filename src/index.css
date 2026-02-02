@@ -9,69 +9,70 @@
 
 @layer base {
   :root {
-    /* Brand colors (applied site-wide):
-       - All text -> gold (#f8c256)
-       - All backgrounds/buttons/hover -> maroon (#3d2318)
-    */
-    --foreground: 40 86% 62%; /* #f8c256 - text */
-    --background: 19 22% 17%; /* #3d2318 - base background */
+    /* Palette tokens: apply provided color scheme across site */
 
-    /* Surfaces use brand background and foreground for text */
-    --card: 19 22% 17%;
-    --card-foreground: 40 86% 62%;
+    /* Primary (deep brown) */
+    --color-primary-hex: #3E2522;
+    --primary: 8 45% 19%; /* hsl(var(--primary)) => #3E2522 */
+    --primary-foreground: 40 100% 93%; /* cream for text on primary */
 
-    --popover: 19 22% 17%;
-    --popover-foreground: 40 86% 62%;
+    /* Secondary (muted taupe) */
+    --color-secondary-hex: #8C6E63;
+    --secondary: 20 17% 46%;
+    --secondary-foreground: 40 100% 93%;
 
-    /* Primary controls / buttons use maroon */
-    --primary: 19 22% 17%;
-    --primary-foreground: 40 86% 62%;
+    /* Accent (warm tan) */
+    --color-accent-hex: #D3A376;
+    --accent: 30 44% 64%;
+    --accent-foreground: 25 30% 15%;
 
-    /* Secondary - keep an accessible lighter tone when needed (rare) */
-    --secondary: 25 35% 85%;
-    --secondary-foreground: 40 86% 62%;
+    /* Surface and background */
+    --color-surface-hex: #FFE0B2;
+    --color-bg-hex: #FFF2DF;
+    --card: 35 100% 85%; /* surface */
+    --card-foreground: 25 30% 15%;
+    --popover: 35 100% 85%;
+    --popover-foreground: 25 30% 15%;
+    --background: 40 100% 93%; /* page background */
+    --foreground: 25 30% 15%;
 
-    /* Muted surfaces also mapped to brand background */
-    --muted: 19 22% 17%;
-    --muted-foreground: 40 86% 62%;
-
-    /* Accent kept as brand text (gold) */
-    --accent: 40 86% 62%; /* #f8c256 */
-    --accent-foreground: 19 22% 17%;
+    /* Muted / text */
+    --muted: 20 17% 46%;
+    --muted-foreground: 25 20% 45%;
 
     /* Destructive */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 40 30% 96%;
 
     /* Border & Input */
-    --border: 30 25% 85%;
-    --input: 30 25% 85%;
-    --ring: 18 40% 18%;
+    --border: 20 12% 84%;
+    --input: 20 12% 92%;
+    --ring: 30 44% 64%; /* use accent hue for rings */
 
     --radius: 0.5rem;
 
-    /* Sidebar uses brand surfaces */
-    --sidebar-background: 19 22% 17%;
-    --sidebar-foreground: 40 86% 62%;
-    --sidebar-primary: 19 22% 17%;
-    --sidebar-primary-foreground: 40 86% 62%;
-    --sidebar-accent: 40 86% 62%;
-    --sidebar-accent-foreground: 19 22% 17%;
-    --sidebar-border: 19 22% 17%;
-    --sidebar-ring: 19 22% 17%;
+    /* Sidebar */
+    --sidebar-background: 35 100% 85%;
+    --sidebar-foreground: 25 30% 25%;
+    --sidebar-primary: 8 45% 19%;
+    --sidebar-primary-foreground: 40 100% 93%;
+    --sidebar-accent: 30 44% 64%;
+    --sidebar-accent-foreground: 25 30% 15%;
+    --sidebar-border: 20 12% 84%;
+    --sidebar-ring: 30 44% 64%;
 
-    /* Custom Sufi Theme Colors */
-    --sufi-maroon: 19 22% 17%; /* #3d2318 */
-    --sufi-gold: 40 86% 62%; /* #f8c256 */
-    --sufi-cream: 40 86% 62%; /* text uses gold */
-    --sufi-brown: 25 35% 30%;
-    --sufi-brown-light: 25 25% 85%;
-    --sufi-sand: 35 40% 88%;
+    /* Sufi Theme Colors mapped to palette */
+    --sufi-maroon: 8 45% 19%;
+    --sufi-gold: 30 44% 64%;
+    --sufi-cream: 40 100% 93%;
+    --sufi-brown: 20 17% 46%;
+    --sufi-brown-light: 35 100% 85%;
+    --sufi-sand: 35 100% 85%;
     
-    /* Gradient definitions */
-    --gradient-sufi: linear-gradient(135deg, hsl(19 22% 17%), hsl(25 35% 30%));
-    --gradient-gold: linear-gradient(135deg, hsl(40 86% 62%), hsl(35 60% 45%));
-    --shadow-warm: 0 10px 30px -10px hsl(19 22% 17% / 0.2);
+    /* Gradient definitions using palette */
+    --gradient-sufi: linear-gradient(135deg, hsl(var(--sufi-maroon)), hsl(var(--sufi-brown)));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--sufi-gold)), hsl(35 60% 45%));
+    --shadow-warm: 0 10px 30px -10px hsl(var(--sufi-brown) / 0.2);
 
     /* Motion System Tokens */
     --motion-fade-slow: 180ms;
@@ -292,14 +293,14 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: linear-gradient(180deg, hsl(var(--sufi-sand) / 0.6), hsl(var(--sufi-cream) / 0.9));
+  background: linear-gradient(180deg, var(--color-bg-hex), var(--color-surface-hex));
   border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, hsl(var(--primary)), hsl(var(--accent)));
+  background: linear-gradient(180deg, var(--color-primary-hex), var(--color-accent-hex));
   border-radius: 8px;
-  border: 2px solid hsl(var(--sufi-cream) / 0.45);
+  border: 2px solid rgba(255, 242, 223, 0.45);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -309,5 +310,5 @@
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: hsl(var(--primary)) hsl(var(--sufi-cream));
+  scrollbar-color: var(--color-primary-hex) var(--color-bg-hex);
 }
