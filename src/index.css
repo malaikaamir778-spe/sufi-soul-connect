@@ -288,18 +288,26 @@
 
 /* Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(var(--muted));
+  background: linear-gradient(180deg, hsl(var(--sufi-sand) / 0.6), hsl(var(--sufi-cream) / 0.9));
+  border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--primary));
-  border-radius: 4px;
+  background: linear-gradient(180deg, hsl(var(--primary)), hsl(var(--accent)));
+  border-radius: 8px;
+  border: 2px solid hsl(var(--sufi-cream) / 0.45);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--primary) / 0.8);
+  filter: brightness(0.95);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--primary)) hsl(var(--sufi-cream));
 }

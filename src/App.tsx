@@ -11,6 +11,7 @@ import History from "./pages/History";
 import Reviews from "./pages/Reviews";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
+import ForgotPassword from "./pages/ForgotPassword";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/history" element={<History />} />
             <Route path="/reviews" element={<Reviews />} />
             <Route path="/auth" element={<Auth />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </HashRouter>

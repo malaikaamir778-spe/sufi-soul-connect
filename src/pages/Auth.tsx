@@ -142,25 +142,34 @@ const Auth = () => {
 
   const handleGoogleLogin = async () => {
     setIsLoading(true);
-    
+
     try {
       const { error } = await signInWithGoogle();
 
       if (error) {
-        const errorCode = (error as any).code || "";
-        toast({
-          variant: "destructive",
-          title: "Google sign-in failed",
-          description: getErrorMessage(errorCode),
-        });
+        const message = (error as any).message || "";
+        const code = (error as any).code || "";
+
+        // Detect unauthorized domain helpful message
+        if (message.toLowerCase().includes('unauthorized domain') || code === 'auth/unauthorized-domain') {
+          toast({
+            variant: "destructive",
+            title: "Google sign-in blocked",
+            description: "This site is not authorized in Firebase. Add your GitHub Pages domain to Firebase Authorized Domains.",
+          });
+        } else {
+          const errorCode = code || message || "";
+          toast({
+            variant: "destructive",
+            title: "Google sign-in failed",
+            description: getErrorMessage(errorCode),
+          });
+        }
+
         setIsLoading(false);
       } else {
-        toast({
-          title: "Welcome!",
-          description: "You have successfully signed in with Google.",
-        });
-        // Don't set loading to false here, let the useEffect redirect handle it
-        // since the user state will update
+        // If redirect flow is used, the app will navigate away — no need to change loading here
+        // Otherwise (popup), the onAuthStateChanged useEffect will redirect
       }
     } catch (err) {
       console.error("Google login error:", err);

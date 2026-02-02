@@ -5,6 +5,8 @@ import {
   createUserWithEmailAndPassword,
   signOut,
   signInWithPopup,
+  signInWithRedirect,
+  getRedirectResult,
   onAuthStateChanged,
   updateProfile,
   sendPasswordResetEmail,
@@ -45,6 +47,19 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       setLoading(false);
     });
 
+    // Check for redirect result (for signInWithRedirect flows)
+    getRedirectResult(auth).then((result) => {
+      if (result && result.user) {
+        // If redirect sign-in succeeded, update profile if needed
+        if (result.user && !result.user.displayName) {
+          updateProfile(result.user, { displayName: result.user.email?.split("@")[0] || "User" }).catch((e) => console.error(e));
+        }
+      }
+    }).catch((err) => {
+      // Log but don't break app; show more helpful debug in consuming components
+      console.error("getRedirectResult error:", err);
+    });
+
     return () => unsubscribe();
   }, []);
 
@@ -74,29 +89,43 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const signInWithGoogle = async () => {
     try {
-      // Use redirect method for better compatibility with GitHub Pages
+      // For GitHub Pages (and similar static hosts), popup may be blocked or unauthorized-domain may occur.
+      const isGithubPages = typeof window !== 'undefined' && window.location.hostname.includes('github.io');
+
+      if (isGithubPages || process.env.NODE_ENV === 'production') {
+        // Use redirect flow for better compatibility on static hosts
+        try {
+          await signInWithRedirect(auth, googleProvider);
+          // redirect will navigate away; we return null error since flow continues after redirect
+          return { error: null };
+        } catch (err) {
+          console.error('signInWithRedirect error:', err);
+          return { error: err as Error };
+        }
+      }
+
+      // Default to popup for local/dev
       const result = await signInWithPopup(auth, googleProvider);
-      
+
       // Handle any profile updates if needed
       if (result.user && !result.user.displayName) {
         await updateProfile(result.user, {
           displayName: result.user.email?.split("@")[0] || "User",
         });
       }
-      
+
       return { error: null };
     } catch (error: any) {
-      // Handle specific errors
       console.error("Google sign-in error:", error);
-      
+
       if (error.code === "auth/popup-closed-by-user") {
         return { error: error as Error };
       }
-      
+
       if (error.code === "auth/unauthorized-domain") {
-        console.error("Firebase not configured for this domain. Add it to authorized domains in Firebase Console.");
+        return { error: new Error("Unauthorized domain: please add your GitHub Pages domain to Firebase Authorized Domains (e.g., malaikaamir778-spe.github.io)"); };
       }
-      
+
       return { error: error as Error };
     }
   };
